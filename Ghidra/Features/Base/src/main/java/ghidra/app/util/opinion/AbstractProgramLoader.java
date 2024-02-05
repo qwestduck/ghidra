@@ -345,7 +345,7 @@ public abstract class AbstractProgramLoader implements Loader {
 	}
 
 	/**
-	 * Sets a program's Executable Path, Executable Format, MD5, SHA256, and FSRL properties.
+	 * Sets a program's Executable Path, Executable Format, MD5, SHA1, SHA256, and FSRL properties.
 	 * <p>
 	 *  
 	 * @param prog {@link Program} (with active transaction)
@@ -371,6 +371,8 @@ public abstract class AbstractProgramLoader implements Loader {
 				.setString(ProgramMappingService.PROGRAM_SOURCE_FSRL, fsrl.toString());
 		}
 		prog.setExecutableMD5(md5);
+		String sha1 = computeBinarySHA1(provider);
+		prog.setExecutableSHA1(sha1);
 		String sha256 = computeBinarySHA256(provider);
 		prog.setExecutableSHA256(sha256);
 	}
@@ -534,6 +536,12 @@ public abstract class AbstractProgramLoader implements Loader {
 	private static String computeBinaryMD5(ByteProvider provider) throws IOException {
 		try (InputStream in = provider.getInputStream(0)) {
 			return MD5Utilities.getMD5Hash(in);
+		}
+	}
+
+	private static String computeBinarySHA1(ByteProvider provider) throws IOException {
+		try (InputStream in = provider.getInputStream(0)) {
+			return HashUtilities.getHash(HashUtilities.SHA1_ALGORITHM, in);
 		}
 	}
 

@@ -955,6 +955,16 @@ public class DBTraceProgramView implements TraceProgramView {
 	}
 
 	@Override
+	public String getExecutableSHA1() {
+		return null;
+	}
+
+	@Override
+	public void setExecutableSHA1(String sha1) {
+		throw new UnsupportedOperationException();
+	}
+
+	@Override
 	public String getExecutableSHA256() {
 		return null;
 	}

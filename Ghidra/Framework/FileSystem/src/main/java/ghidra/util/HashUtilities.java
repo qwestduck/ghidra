@@ -26,12 +26,16 @@ import generic.random.SecureRandomFactory;
 public class HashUtilities {
 
 	public static String MD5_ALGORITHM = "MD5";
+	public static String SHA1_ALGORITHM = "SHA-1";
 	public static String SHA256_ALGORITHM = "SHA-256";
 
 	public static final int SALT_LENGTH = 4;
 
 	public static final int MD5_UNSALTED_HASH_LENGTH = 32;
 	public static final int MD5_SALTED_HASH_LENGTH = MD5_UNSALTED_HASH_LENGTH + SALT_LENGTH;
+
+	public static final int SHA1_UNSALTED_HASH_LENGTH = 40;
+	public static final int SHA1_SALTED_HASH_LENGTH = SHA1_UNSALTED_HASH_LENGTH + SALT_LENGTH;
 
 	public static final int SHA256_UNSALTED_HASH_LENGTH = 64;
 	public static final int SHA256_SALTED_HASH_LENGTH = SHA256_UNSALTED_HASH_LENGTH + SALT_LENGTH;

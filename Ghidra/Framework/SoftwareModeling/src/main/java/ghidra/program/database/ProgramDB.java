@@ -148,6 +148,7 @@ public class ProgramDB extends DomainObjectAdapterDB implements Program, ChangeM
 	private static final String EXECUTABLE_PATH = "Executable Location";
 	private static final String EXECUTABLE_FORMAT = "Executable Format";
 	private static final String EXECUTABLE_MD5 = "Executable MD5";
+	private static final String EXECUTABLE_SHA1 = "Executable SHA1";
 	private static final String EXECUTABLE_SHA256 = "Executable SHA256";
 	private static final String EXECUTE_PATH = "Execute Path";
 	private static final String EXECUTE_FORMAT = "Execute Format";
@@ -680,6 +681,25 @@ public class ProgramDB extends DomainObjectAdapterDB implements Program, ChangeM
 	public void setExecutableMD5(String md5) {
 		Options pl = getOptions(PROGRAM_INFO);
 		pl.setString(EXECUTABLE_MD5, md5);
+	}
+
+	@Override
+	public String getExecutableSHA1() {
+		String format = null;
+		try {
+			Options pl = getOptions(PROGRAM_INFO);
+			format = pl.getString(EXECUTABLE_SHA1, (String) null);
+		}
+		catch (Exception e) {
+			// handled below
+		}
+		return format == null ? UNKNOWN : format;
+	}
+
+	@Override
+	public void setExecutableSHA1(String sha1) {
+		Options pl = getOptions(PROGRAM_INFO);
+		pl.setString(EXECUTABLE_SHA1, sha1);
 	}
 
 	@Override

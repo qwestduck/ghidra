@@ -243,6 +243,18 @@ public interface Program extends DataTypeManagerDomainObject, ProgramArchitectur
 	public void setExecutableMD5(String md5);
 
 	/**
+	 * Sets the value corresponding to the original binary file SHA1 hash.
+	 * @param sha1 SHA1 binary file hash
+	 */
+	public void setExecutableSHA1(String sha1);
+
+	/**
+	 * Returns a value corresponding to the original binary file SHA1 hash.
+	 * @return original loaded file SHA1 or null
+	 */
+	public String getExecutableSHA1();
+
+	/**
 	 * Sets the value corresponding to the original binary file SHA256 hash.
 	 * @param sha256 SHA256 binary file hash
 	 */

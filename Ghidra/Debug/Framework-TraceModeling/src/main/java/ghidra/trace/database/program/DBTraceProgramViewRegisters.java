@@ -186,6 +186,16 @@ public class DBTraceProgramViewRegisters implements TraceProgramView {
 	}
 
 	@Override
+	public void setExecutableSHA1(String sha1) {
+		view.setExecutableSHA1(sha1);
+	}
+
+	@Override
+	public String getExecutableSHA1() {
+		return view.getExecutableSHA1();
+	}
+
+	@Override
 	public void setExecutableSHA256(String sha256) {
 		view.setExecutableSHA256(sha256);
 	}

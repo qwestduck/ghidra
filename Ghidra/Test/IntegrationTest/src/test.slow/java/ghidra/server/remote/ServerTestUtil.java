@@ -907,6 +907,8 @@ public class ServerTestUtil {
 		try {
 			String md5 = RandomStringUtils.randomNumeric(32);
 			program.setExecutableMD5(md5);
+			String sha1 = RandomStringUtils.randomNumeric(40);
+			program.setExecutableSHA1(sha1);
 			String sha256 = RandomStringUtils.randomNumeric(64);
 			program.setExecutableSHA256(sha256);
 		}

@@ -446,6 +446,16 @@ public class StubProgram implements Program {
 	}
 
 	@Override
+	public String getExecutableSHA1() {
+		throw new UnsupportedOperationException();
+	}
+
+	@Override
+	public void setExecutableSHA1(String sha1) {
+		throw new UnsupportedOperationException();
+	}
+
+	@Override
 	public String getExecutableSHA256() {
 		throw new UnsupportedOperationException();
 	}
